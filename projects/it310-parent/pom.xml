@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>fr.enseirb.it310.projects.build</groupId>
+   <artifactId>it310-parent</artifactId>
+   <version>1.0.0-rc02</version>
+   <packaging>pom</packaging>
+
+   <name>it310-parent</name>
+   <url>http://maven.apache.org</url>
+
+   <developers>
+      <developer>
+         <id>McFoggy</id>
+         <name>Matthieu Brouillard</name>
+         <email>matthieu@brouillard.fr</email>
+      </developer>
+   </developers>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+      <java.source.version>1.6</java.source.version>
+      <java.target.version>1.6</java.target.version>
+
+      <!-- plugin version -->
+      <maven-antrun-plugin.version>1.3</maven-antrun-plugin.version>
+      <maven-assembly-plugin.version>2.2-beta-5</maven-assembly-plugin.version>
+      <maven-dependency-plugin.version>2.1</maven-dependency-plugin.version>
+      <maven-release-plugin.version>2.0</maven-release-plugin.version>
+      <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+      <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+      <maven-jar-plugin.version>2.3.2</maven-jar-plugin.version>
+      <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+      <maven-surefire-plugin.version>2.10</maven-surefire-plugin.version>
+      <maven-install-plugin.version>2.3.1</maven-install-plugin.version>
+      <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
+      <maven-site-plugin.version>3.0</maven-site-plugin.version>
+
+      <!-- artifact versions -->
+      <junit.version>4.8.2</junit.version>
+      <slf4j-api.version>1.6.6</slf4j-api.version>
+      <slf4j-simple.version>1.6.6</slf4j-simple.version>
+      <guava.version>15.0</guava.version>
+   </properties>
+
+   <build>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <artifactId>maven-antrun-plugin</artifactId>
+               <version>${maven-antrun-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-assembly-plugin</artifactId>
+               <version>${maven-assembly-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-dependency-plugin</artifactId>
+               <version>${maven-dependency-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-release-plugin</artifactId>
+               <version>${maven-release-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-clean-plugin</artifactId>
+               <version>${maven-clean-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-resources-plugin</artifactId>
+               <version>${maven-resources-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-jar-plugin</artifactId>
+               <version>${maven-jar-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <version>${maven-compiler-plugin.version}</version>
+               <configuration>
+                  <source>${java.source.version}</source>
+                  <target>${java.target.version}</target>
+               </configuration>
+            </plugin>
+            <plugin>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-install-plugin</artifactId>
+               <version>${maven-install-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-deploy-plugin</artifactId>
+               <version>${maven-deploy-plugin.version}</version>
+            </plugin>
+            <plugin>
+               <artifactId>maven-site-plugin</artifactId>
+               <version>${maven-site-plugin.version}</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+
+   </build>
+
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j-simple.version}</version>
+         </dependency>
+         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>15.0</version>
+         </dependency>
+         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+         </dependency>
+      </dependencies>
+   </dependencyManagement>
+</project>
