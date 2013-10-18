@@ -6,6 +6,9 @@ Students _(or whoever is interrested)_ will find here organized by year:
 
 * slides used during courses
 * problems & exercices _(and probably a potential solution)_
+ 
+Do not hesitate to visit and contribute to [our wiki](https://github.com/McFoggy/it310/wiki).
+
 
 ### Contact
 
