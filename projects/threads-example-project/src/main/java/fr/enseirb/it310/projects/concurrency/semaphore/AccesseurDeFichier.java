@@ -1,8 +1,6 @@
 package fr.enseirb.it310.projects.concurrency.semaphore;
 
 import java.io.File;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 public class AccesseurDeFichier {
@@ -23,6 +21,5 @@ public class AccesseurDeFichier {
 	public void libereFichier(File f) {
 		// nettoyer si besoin
 		limiteur.release();
-		
 	}
 }
