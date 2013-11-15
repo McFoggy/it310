@@ -6,8 +6,6 @@ import java.util.logging.Logger;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import fr.enseirb.it310.projects.jee.ft.api.FeatureRepository;
 import fr.enseirb.it310.projects.jee.ft.model.Feature;
@@ -17,9 +15,6 @@ import fr.enseirb.it310.projects.jee.ft.model.Feature;
 @Remote(value=FeatureRepository.class)
 public class FeatureRepositoryService implements FeatureRepository {
 	private static final Logger LOG = Logger.getLogger(FeatureRepositoryService.class.getName());
-
-	@PersistenceContext
-	private EntityManager em;
 
 	@Override
 	public void registerFeature(Feature f) {
