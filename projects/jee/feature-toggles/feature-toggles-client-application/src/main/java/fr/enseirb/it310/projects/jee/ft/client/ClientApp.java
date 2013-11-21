@@ -11,22 +11,18 @@ import fr.enseirb.it310.projects.jee.ft.model.Feature;
 public class ClientApp {
 	public static void main(String[] args) throws Exception {
 		Properties props = new Properties();
+		
+		// see https://docs.jboss.org/author/display/AS71/Remote+EJB+invocations+via+JNDI+-+EJB+client+API+or+remote-naming+project
 		props.put(Context.INITIAL_CONTEXT_FACTORY, "org.jboss.naming.remote.client.InitialContextFactory");
-		props.put(Context.PROVIDER_URL, "remote://localhost:4447");
-		props.put("jboss.naming.client.ejb.context", true);
-		props.put(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
-		props.put("jboss.naming.client.connect.options.org.xnio.Options.SASL_POLICY_NOPLAINTEXT", "false");
+		props.put(Context.PROVIDER_URL,"remote://localhost:4447");
 		props.put(Context.SECURITY_PRINCIPAL, "user");
 		props.put(Context.SECURITY_CREDENTIALS, "u");
+		props.put("jboss.naming.client.ejb.context", true);
 
 		InitialContext ic = new InitialContext(props);
-
-		// FeatureRepository r = (FeatureRepository)
-		// ic.lookup(" java:global/feature-toggles/feature-toggles-ejb/FeatureRepositoryService/fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
-		// FeatureRepository r = (FeatureRepository)
-		// ic.lookup("java:jboss/exported/feature-toggles/feature-toggles-ejb/FeatureRepositoryService!fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
 		FeatureRepository r = (FeatureRepository) ic
-				.lookup("ejb:feature-toggles/feature-toggles-ejb//FeatureRepositoryService!fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
+				.lookup("feature-toggles-app/feature-toggles-ejb//FeatureRepositoryService!fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
+
 		Feature f = new Feature("feature.one");
 		System.out.println("adding feature: " + f.getKey());
 		r.registerFeature(f);
