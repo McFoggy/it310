@@ -21,7 +21,7 @@ public class ClientApp {
 
 		InitialContext ic = new InitialContext(props);
 		FeatureRepository r = (FeatureRepository) ic
-				.lookup("feature-toggles-app/feature-toggles-ejb//FeatureRepositoryService!fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
+				.lookup("feature-toggles-app/feature-toggles-ejb/FeatureRepositoryService!fr.enseirb.it310.projects.jee.ft.api.FeatureRepository");
 
 		Feature f = new Feature("feature.one");
 		System.out.println("adding feature: " + f.getKey());
